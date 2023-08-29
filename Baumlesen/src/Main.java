@@ -5,26 +5,21 @@ import java.util.ArrayList;
 
 public class Main {
 
-    //Bu metod, verilen dosya yolundan sayıları okuyarak bir İkili Arama Ağacı (BST) oluşturur,
-    // ağacın AVL ağacı olup olmadığını kontrol eder ve istatistikleri yazdırır.
     public static void Question_1(String filePath) throws IOException {
-        //Okunacak satırı tutan bir değişken tanımlıyoruz.
+        // We define a variable that holds the line to be read.
         String line = "";
 
-        //Dosyayı okumak için BufferedReader nesnesi oluşturuyoruz.
         BufferedReader br = new BufferedReader(new FileReader(filePath));
         BinarySearchTree bst = new BinarySearchTree();
 
-        //Dosyadan okunan her satırı (sayıyı) ağaca ekliyoruz.
+        // We add each line (number) read from the file to the tree.
         while ((line = br.readLine()) != null){
             bst.insert(Integer.parseInt(line));
         }
-        //Ağacın AVL ağacı olup olmadığını kontrol ediyoruz ve istatistikleri yazdırıyoruz.
+        //We check if the tree is an AVL tree and print the statistics.
         bst.isAVL();
         bst.printStats();
     }
-    //Bu metod, iki dosya yolu alarak bir ana BST ve bir alt ağaç listesi oluşturur,
-    //ardından iki anahtar değerinin yolunu yazdırır ve alt ağacın ana ağacın bir alt ağacı olup olmadığını kontrol eder.
     public static void Question_2(String treeFilePath, String subTreeFilePath) throws IOException {
 
         String line = "";
